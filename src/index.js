@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import Router from "./components/Router";
 import MenuRutas from "./components/MenuRutas";
 import FormSimple from "./components/FormSimple";
+import Collatz from "./components/Collatz";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,8 @@ root.render(
     <MenuRutas />
     <hr />
     {/* <Router /> */}
-    <FormSimple />
+    {/* <FormSimple /> */}
+    <Collatz />
     <hr />
     <h2>Pie de pagina</h2>
   </React.StrictMode>
