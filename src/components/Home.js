@@ -5,7 +5,10 @@ class Home extends Component {
     return (
       <div>
         <h1>Home</h1>
-        <img src="https://s.w-x.co/UP.jpg" style={{ width: "150px", height: "150px" }}></img>
+        <img
+          src="https://s.w-x.co/UP.jpg"
+          style={{ width: "150px", height: "150px" }}
+        ></img>
       </div>
     );
   }
