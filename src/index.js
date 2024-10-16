@@ -13,9 +13,9 @@ root.render(
   <React.StrictMode>
     <MenuRutas />
     <hr />
-    {/* <Router /> */}
+    <Router />
     {/* <FormSimple /> */}
-    <Collatz />
+    {/* <Collatz /> */}
     <hr />
     <h2>Pie de pagina</h2>
   </React.StrictMode>

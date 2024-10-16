@@ -1,50 +1,41 @@
 import React, { Component } from "react";
-
 export default class Collatz extends Component {
+  //NECESITAMOS UN OBJETO CAJA PARA RECUPERAR EL DATO
   cajaNumero = React.createRef();
   state = {
     numeros: [],
   };
-
-  calcularCollatz = (num) => {
-    let numeros = [];
-    while (num !== 1) {
-      numeros.push(num);
-      if (num % 2 === 0) {
-        num = num / 2;
-      } else {
-        num = num * 3 + 1;
-      }
-    }
-    numeros.push(1);
-    return numeros;
-  };
-
-  peticionForm = (e) => {
+  mostrarCollatz = (e) => {
     e.preventDefault();
-    let num = parseInt(this.cajaNumero.current.value);
-    console.log("El numero es: " + num);
-    if (num <= 0) {
-      alert("Por favor, introduce un número entero positivo.");
-      return;
+    let numero = parseInt(this.cajaNumero.current.value);
+    let aux = [];
+    aux.push(numero);
+    this.state.numeros.push(numero);
+    while (numero != 1) {
+      if (numero % 2 == 0) {
+        numero = numero / 2;
+      } else {
+        numero = numero * 3 + 1;
+      }
+      aux.push(numero);
     }
-
     this.setState({
-      numeros: this.calcularCollatz(num),
+      numeros: aux,
     });
   };
-
   render() {
     return (
       <div>
-        <h1>Conjetura de Collatz</h1>
-        <label>Introduce el numero: </label>
-        <input type="text" ref={this.cajaNumero} /> <br />
-        <button onClick={this.peticionForm}>Mostrar numeros</button>
+        <h1>Collatz</h1>
+        <form onSubmit={this.mostrarCollatz}>
+          <label>Introduzca un número</label>
+          <input type="text" ref={this.cajaNumero} />
+          <button>Conjetura Collatz</button>
+        </form>
         <ul>
-          {this.state.numeros.map((numero, index) => (
-            <li key={index}>{numero}</li>
-          ))}
+          {this.state.numeros.map((numero, index) => {
+            return <li key={index}>{numero}</li>;
+          })}
         </ul>
       </div>
     );
